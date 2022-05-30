@@ -12,7 +12,10 @@ from tools import create_table
 con = sqlite3.connect(":memory:")
 con = create_table(con)  # сформируем таблицу из предыдущих уроков
 cur = con.cursor()
-sqlite_query = ("")  # TODO напишите здесь первый запрос на изменение строки
+sqlite_query = """
+            DELETE FROM animals
+            WHERE Name == 'Алина'
+           """
 
 # Не удаляйте этот код, он используется
 # для вывода результата
@@ -20,7 +23,7 @@ sqlite_query = ("")  # TODO напишите здесь первый запро�
 
 def print_result(sqlite_query):
     cur.execute(sqlite_query)
-    result_query = ('SELECT * from animals')
+    result_query = """SELECT * from animals"""
     table = cur.execute(result_query)
     mytable = prettytable.from_db_cursor(table)
     mytable.max_width = 30

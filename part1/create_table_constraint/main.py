@@ -9,14 +9,24 @@ import prettytable
 
 con = sqlite3.connect(":memory:")
 cur = con.cursor()
-sqlite_query = ("")  # TODO составьте запрос на создание таблицы
+sqlite_query = """
+            CREATE TABLE animals (
+                Id integer PRIMARY KEY AUTOINCREMENT,
+                AnimalType varchar(50),
+                Sex varchar(10),
+                Name varchar(40)  CONSTRAINT df_Name DEFAULT 'Noname',
+                DateOfBirth date,
+                Age integer,
+                Weight decimal
+                  )
+            """
 # Не удаляйте этот код, он используется
 # для вывода заголовков созданной таблицы
 
 
 def print_result(sqlite_query):
     cur.execute(sqlite_query)
-    result_query = ('SELECT * from animals')
+    result_query = """SELECT * from animals"""
     table = cur.execute(result_query)
     mytable = prettytable.from_db_cursor(table)
     mytable.max_width = 30
