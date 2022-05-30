@@ -15,7 +15,7 @@ cur = con.cursor()
 sqlite_query = """
             DELETE FROM animals
             WHERE Name == 'Алина'
-           """
+            """
 
 # Не удаляйте этот код, он используется
 # для вывода результата

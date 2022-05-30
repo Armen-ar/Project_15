@@ -19,7 +19,7 @@ sqlite_query_first = """
             UPDATE animals
             SET AnimalType = 'Кошка'
             WHERE AnimalType == 'Кот'
-            """
+         """
 cur.execute(sqlite_query_first)
 sqlite_query_second = """
             UPDATE animals
